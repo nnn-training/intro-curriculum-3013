@@ -22,6 +22,9 @@ const server = http
           .on('end', () => {
             console.info('[' + now + '] Data posted: ' + rawData);
           });
+        break;  
+      case 'DELETE':
+        res.write('DELETE' + req.url);
         break;
       default:
         break;
@@ -36,5 +39,5 @@ const server = http
   });
 const port = 8000;
 server.listen(port, () => {
-  console.info('[' + new Date() + '] Listening on ' + port);
+  console.info('[' + new Date() + '] !!! Listening on ' + port);
 });
