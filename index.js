@@ -23,6 +23,9 @@ const server = http
             console.info('[' + now + '] Data posted: ' + rawData);
           });
         break;
+      case 'DELET':
+        res.write('DELETE ' + req.url);
+        break;
       default:
         break;
     }
