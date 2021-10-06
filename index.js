@@ -20,10 +20,13 @@ const server = http
             rawData = rawData + chunk;
           })
           .on('end', () => {
-            console.info('[' + now + '] Data posted: ' + rawData);
+            console.info(`[${now}] 受け取ったデータは ${rawData}`);
           });
         break;
-      default:
+      case 'DELETE':
+        res.write('DELETE ' + req.url);
+        break;
+        default:
         break;
     }
     res.end();
