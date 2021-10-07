@@ -23,6 +23,10 @@ const server = http
             console.info('[' + now + '] Data posted: ' + rawData);
           });
         break;
+        case 'DELETE':
+          res.write('DELETE ' + req.url);
+          // console.error('重大鰓メソッドが発動しましたｗ');
+          break;
       default:
         break;
     }
