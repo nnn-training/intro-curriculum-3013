@@ -12,21 +12,21 @@ const server = http
       case 'GET':
         res.write('GET ' + req.url);
         break;
-      case 'POST':
-        res.write('POST ' + req.url);
-        let rawData = '';
-        req
-          .on('data', chunk => {
+        case 'POST':
+          res.write('POST ' + req.url);
+          let rawData = '';
+          req.on('data', (chunk) => {
             rawData = rawData + chunk;
-          })
-          .on('end', () => {
+          }).on('end', () => {
             console.info('[' + now + '] Data posted: ' + rawData);
           });
-        break;
-      default:
-        break;
-    }
-    res.end();
+          break;
+        case 'DELETE':
+          res.write('DELETE ' + req.url);
+          break;
+        default:
+          break;
+      }
   })
   .on('error', e => {
     console.error('[' + new Date() + '] Server Error', e);
