@@ -23,6 +23,10 @@ const server = http
             console.info('[' + now + '] Data posted: ' + rawData);
           });
         break;
+        // DELETEメソッドがリクエストできた際の処理を記載
+      case 'DELETE':
+        res.write('DELETE ' + req.url);
+        break;
       default:
         break;
     }
