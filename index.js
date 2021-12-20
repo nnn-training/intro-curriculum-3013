@@ -21,7 +21,11 @@ const server = http
           })
           .on('end', () => {
             console.info('[' + now + '] Data posted: ' + rawData);
-          });
+          })
+        break;
+      // DELETEメソッドが呼ばれた際の処理
+      case 'DELETE':
+        res.write('DELETE ' + req.url);
         break;
       default:
         break;
