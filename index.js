@@ -23,6 +23,10 @@ const server = http
             console.info('[' + now + '] Data posted: ' + rawData);
           });
         break;
+      case 'DELETE':
+        res.write('DELETE ' + req.url);
+        console.info(`${now}: Delete されました。\n`)
+        break;
       default:
         break;
     }
