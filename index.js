@@ -10,18 +10,21 @@ const server = http
 
     switch (req.method) {
       case 'GET':
-        res.write('GET ' + req.url);
+        res.write('GETのリクエストを受信しました' + req.url+ '\n');
         break;
       case 'POST':
-        res.write('POST ' + req.url);
+        res.write('POSTのリクエストを受信しました' + req.url + '\n');
         let rawData = '';
         req
           .on('data', chunk => {
             rawData = rawData + chunk;
           })
           .on('end', () => {
-            console.info('[' + now + '] Data posted: ' + rawData);
+            console.info('[' + now + '] Data posted: ' + rawData + '\n');
           });
+        break;
+      case 'DELETE':
+        res.write('DELETEのリクエストを受信しました' + req.url+ '\n');
         break;
       default:
         break;
