@@ -10,10 +10,10 @@ const server = http
 
     switch (req.method) {
       case 'GET':
-        res.write(`GET ${req.url}`);
+        res.write(`GET ${req.url}\n`);
         break;
       case 'POST':
-        res.write(`POST ${req.url}`);
+        res.write(`POST ${req.url}\n`);
         let rawData = '';
         req
           .on('data', chunk => {
@@ -24,6 +24,9 @@ const server = http
           });
         break;
       default:
+        break;
+      case 'DELETE':
+        res.write(`DELETE ${req.url}\n`);
         break;
     }
     res.end();
