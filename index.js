@@ -5,7 +5,7 @@ const server = http
     const now = new Date();
     console.info(`[${now}] Requested by ${req.socket.remoteAddress}`);
     res.writeHead(200, {
-      'Content-Type': 'text/plain; charset=utf-8'
+      'Content-Type': 'text/plain; charset=utf-8',
     });
 
     switch (req.method) {
@@ -16,22 +16,25 @@ const server = http
         res.write(`POST ${req.url}`);
         let rawData = '';
         req
-          .on('data', chunk => {
+          .on('data', (chunk) => {
             rawData += chunk;
           })
           .on('end', () => {
             console.info(`[${now}] Data posted: ${rawData}`);
           });
         break;
+      case 'DELETE':
+        res.write(`DELETE ${req.url}`);
+        break;
       default:
         break;
     }
     res.end();
   })
-  .on('error', e => {
+  .on('error', (e) => {
     console.error(`[${new Date()}] Server Error`, e);
   })
-  .on('clientError', e => {
+  .on('clientError', (e) => {
     console.error(`[${new Date()}] Client Error`, e);
   });
 const port = 8000;
