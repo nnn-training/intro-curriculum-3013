@@ -25,6 +25,7 @@ const server = http
         break;
       case 'DELETE':
         res.write(`DELETE ${req.url}`);
+        break;
       default:
         break;
     }
