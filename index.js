@@ -8,7 +8,7 @@ const server = http
       'Content-Type': 'text/plain; charset=utf-8'
     });
 
-    switch (req.method) {
+ switch (req.method) {
       case 'GET':
         res.write(`GET ${req.url}`);
         break;
@@ -22,6 +22,9 @@ const server = http
           .on('end', () => {
             console.info(`[${now}] Data posted: ${rawData}`);
           });
+        break;
+      case 'DELETE':
+        res.write(`DELETE ${req.url}`);
         break;
       default:
         break;
