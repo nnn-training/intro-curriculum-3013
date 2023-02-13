@@ -22,6 +22,8 @@ const server = http
           .on('end', () => {
             console.info(`[${now}] Data posted: ${rawData}`);
           });
+        case 'DELETE':
+          res.write(`DELETE ${req.url}`);
         break;
       default:
         break;
