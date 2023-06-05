@@ -23,11 +23,15 @@ const server = http
             console.info(`[${now}] Data posted: ${rawData}`);
           });
         break;
+       case 'DELETE':
+        res.write(`DELETE ${req.url}`);
+        break; 
       default:
         break;
     }
     res.end();
   })
+
   .on('error', e => {
     console.error(`[${new Date()}] Server Error`, e);
   })
