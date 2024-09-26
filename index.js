@@ -12,6 +12,8 @@ const server = http
       case 'GET':
         res.write(`GET ${req.url}`);
         break;
+      case 'DELETE':
+          res.write(`DELETE ${req.url}`);
       case 'POST':
         res.write(`POST ${req.url}`);
         let rawData = '';
