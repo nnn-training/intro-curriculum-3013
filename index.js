@@ -7,7 +7,7 @@ const server = http
     res.writeHead(200, {
       'Content-Type': 'text/plain; charset=utf-8'
     });
-
+    console.log(`${req.method}`);
     switch (req.method) {
       case 'GET':
         res.write(`GET ${req.url}`);
@@ -23,6 +23,9 @@ const server = http
             console.info(`[${now}] Data posted: ${rawData}`);
           });
         break;
+        case 'DELETE':
+          res.write(`DELETE ${req.url}\n`);
+          break;
       default:
         break;
     }
