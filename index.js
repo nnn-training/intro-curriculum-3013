@@ -14,6 +14,7 @@ const server = http
         break;
       case 'POST':
         res.write(`POST ${req.url}\n`);
+        break;
         let rawData = '';
         req
           .on('data', chunk => {
@@ -22,6 +23,9 @@ const server = http
           .on('end', () => {
             console.info(`[${now}] Data posted: ${rawData}`);
           });
+        break;
+        case 'DELETE':
+        res.write(`DELETE ${req.url}\n`);
         break;
       default:
         break;
