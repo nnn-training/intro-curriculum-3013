@@ -23,6 +23,12 @@ const server = http
             console.info(`[${now}] Data posted: ${rawData}`);
           });
         break;
+        /**
+         * DELETEの追加
+         */
+      case 'DELETE':
+        res.write(`DELETE ${req.url}\n`);
+        break;
       default:
         break;
     }
